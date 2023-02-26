@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <style>
+      /* Set the height of the map element to 400 pixels */
+      #map {
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1><b>Welcome to Majhus Safety</b></h1>
+    <button id="checkSafety" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;" onclick="redirectToMap()">Report a crime</button>
+
+
+    <script>
+        const button = document.querySelector('#checkSafety');
+      
+        button.addEventListener('click', function() {
+          button.textContent = 'Button Clicked';
+        });
+
+        button.addEventListener('mouseover', function() {
+          button.style.backgroundColor = 'gray';
+        });
+      
+        button.addEventListener('mouseout', function() {
+          button.style.backgroundColor = '#4CAF50';
+        });
+
+        function redirectToMap() {
+            window.location.href = "report-crime.html";
+        }
+
+      </script>
+
+    
+    <!-- Create a div element to hold the map -->
+    <div id="map"></div>
+    
+    <!-- Add the Google Maps JavaScript API to the page -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWeZmSuxCMZr85GbRvDGqpd8LBTUkTdIY"></script>
+    
+    <!-- Add your custom JavaScript code to initialize the map -->
+    <script>
+      function initMap() {
+        // Create a new map object centered on a specific location
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 37.7749, lng: -122.4194},
+          zoom: 11
+        });
+      }
+      
+      // Call the initMap function when the page loads
+      window.onload = initMap;
+    </script>
+
+    <a href="java:CrimeReport">Launch CrimeReport</a>
+    <iframe src="java:CrimeReport"></iframe>
+
+  </body>
+</html>
